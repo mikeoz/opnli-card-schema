@@ -1,0 +1,51 @@
+{
+  "jsonrpc": "2.0",
+  "id": "task-001",
+  "method": "tasks/send",
+  "params": {
+    "id": "task-001",
+    "sessionId": "session-abc",
+    "message": {
+      "role": "user",
+      "parts": [
+        {
+          "type": "text",
+          "text": "Process user data from source X for summary report."
+        }
+      ]
+    },
+    "metadata": {
+      "accessCard": {
+        "cardId": "ac-123",
+        "agentId": "agent-xyz",
+        "dataSources": [
+          "https://datasource.example.com/userdata"
+        ],
+        "services": [
+          "summary-report-service"
+        ],
+        "expiration": "2025-12-31T23:59:59Z",
+        "metadata": {
+          "label": "Sample Access Card"
+        }
+      },
+      "transactionCard": {
+        "cardId": "tc-456",
+        "accessCardId": "ac-123",
+        "permissions": [
+          "read",
+          "summarize"
+        ],
+        "constraints": {
+          "timeLimit": "2025-12-31T23:59:59Z",
+          "dataLimit": "100MB",
+          "geofence": "US"
+        },
+        "consent": "consent-record-001",
+        "metadata": {
+          "policyVersion": "1.0"
+        }
+      }
+    }
+  }
+}

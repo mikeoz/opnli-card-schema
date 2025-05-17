@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Opnli CARD Schema",
+  "description": "Defines AccessCard and TransactionCard extensions compatible with the A2A protocol.",
+  "$defs": {
+    "AccessCard": {
+      "title": "AccessCard",
+      "type": "object",
+      "properties": {
+        "cardId": {
+          "type": "string",
+          "title": "CardId"
+        },
+        "agentId": {
+          "type": "string",
+          "title": "AgentId"
+        },
+        "dataSources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "DataSources"
+        },
+        "services": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Services"
+        },
+        "expiration": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": true,
+          "title": "Metadata"
+        }
+      },
+      "required": [
+        "cardId",
+        "agentId",
+        "dataSources",
+        "services"
+      ]
+    },
+    "TransactionCard": {
+      "title": "TransactionCard",
+      "type": "object",
+      "properties": {
+        "cardId": {
+          "type": "string",
+          "title": "CardId"
+        },
+        "accessCardId": {
+          "type": "string",
+          "title": "AccessCardId"
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Permissions"
+        },
+        "constraints": {
+          "type": "object",
+          "properties": {
+            "timeLimit": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "dataLimit": {
+              "type": "string"
+            },
+            "geofence": {
+              "type": "string"
+            }
+          },
+          "title": "Constraints"
+        },
+        "consent": {
+          "type": "string",
+          "title": "ConsentRecord"
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": true,
+          "title": "Metadata"
+        }
+      },
+      "required": [
+        "cardId",
+        "accessCardId",
+        "permissions"
+      ]
+    }
+  }
+}
